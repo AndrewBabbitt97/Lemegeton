@@ -78,7 +78,7 @@ namespace Lemegeton.Core
         public SigLocator(State state)
         {
             _state = state;
-            nint baseaddr = _state.ss.Module.BaseAddress;
+            nint baseaddr = State.ss.Module.BaseAddress;
             IMAGE_DOS_HEADER dos = Marshal.PtrToStructure<IMAGE_DOS_HEADER>(baseaddr);
             if (dos.isValid == true)
             {
@@ -93,7 +93,7 @@ namespace Lemegeton.Core
 
         public nint ScanText(string signature)
         {
-            if (_state.ss.TryScanText(signature, out nint addr) == true)
+            if (State.ss.TryScanText(signature, out nint addr) == true)
             {
                 return addr;
             }
@@ -102,7 +102,7 @@ namespace Lemegeton.Core
 
         public nint ScanData(string signature)
         {
-            if (_state.ss.TryScanData(signature, out nint addr) == true)
+            if (State.ss.TryScanData(signature, out nint addr) == true)
             {
                 return addr;
             }
@@ -111,7 +111,7 @@ namespace Lemegeton.Core
 
         public nint ScanModule(string signature)
         {
-            if (_state.ss.TryScanModule(signature, out nint addr) == true)
+            if (State.ss.TryScanModule(signature, out nint addr) == true)
             {
                 return addr;
             }
@@ -120,7 +120,7 @@ namespace Lemegeton.Core
 
         public nint GetStaticAddressFromSig(string signature, int offset = 0)
         {            
-            if (_state.ss.TryGetStaticAddressFromSig(signature, out nint addr, offset) == true)
+            if (State.ss.TryGetStaticAddressFromSig(signature, out nint addr, offset) == true)
             {
                 return addr;
             }
@@ -135,14 +135,14 @@ namespace Lemegeton.Core
                 return IntPtr.Zero;
             }
             instrAddr = IntPtr.Add(instrAddr, offset);
-            nint bAddr = _state.ss.Module.BaseAddress;
+            nint bAddr = State.ss.Module.BaseAddress;
             long num;
             do
             {
                 instrAddr = IntPtr.Add(instrAddr, 1);
                 num = Marshal.ReadInt32(instrAddr) + (long)instrAddr + 4 - bAddr;
             }
-            while (!(num >= _state.ss.DataSectionOffset && num <= _state.ss.DataSectionOffset + _state.ss.DataSectionSize));
+            while (!(num >= State.ss.DataSectionOffset && num <= State.ss.DataSectionOffset + State.ss.DataSectionSize));
             return IntPtr.Add(instrAddr, Marshal.ReadInt32(instrAddr) + 4);
         }
 
@@ -167,7 +167,7 @@ namespace Lemegeton.Core
         private List<IntPtr> FindPattern(string pattern)
         {
             var results = FindSignature(HexToPattern(pattern));
-            nint baseaddr = _state.ss.Module.BaseAddress;
+            nint baseaddr = State.ss.Module.BaseAddress;
             for (int i = 0; i < results.Count; i++)
             {
                 results[i] = baseaddr + (int)results[i];
