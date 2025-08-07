@@ -1,4 +1,4 @@
-﻿using Dalamud.IoC;
+using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game.Gui;
@@ -64,7 +64,7 @@ namespace Lemegeton
 #else
         public string Name => "Lemegeton";
 #endif
-        public string Version = "1.0.6.5";
+        public string Version = "1.0.7.0";
 
         internal class Downloadable
         {
@@ -112,6 +112,7 @@ namespace Lemegeton
             new Tuple<Version, string>(new System.Version("1.0.6.3"), "Changelog/1.0.6.3"),
             new Tuple<Version, string>(new System.Version("1.0.6.4"), "Changelog/1.0.6.4"),
             new Tuple<Version, string>(new System.Version("1.0.6.5"), "Changelog/1.0.6.5"),
+            new Tuple<Version, string>(new System.Version("1.0.7.0"), "Changelog/1.0.7.0"),
         };
         internal List<Version> ChangeLogVersions = null;        
 

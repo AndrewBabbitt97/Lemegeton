@@ -1,4 +1,4 @@
-﻿using Lemegeton.Core;
+using Lemegeton.Core;
 
 namespace Lemegeton.Language
 {
@@ -14,6 +14,9 @@ namespace Lemegeton.Language
 
         public Danish(State st) : base(st)
         {
+            #region 1.0.7.0
+            //AddEntry("Changelog/1.0.7.0", " Fixes for patch 7.3");
+            #endregion
             #region 1.0.6.5
             //AddEntry("Changelog/1.0.6.5", " Added automarker for M6s Soul Sugar\n Added indicator for M8s Moonbeam cleaves");
             //AddEntry("Content/DawntrailRaids/DTRaidCruiser", "AAC Cruiserweight (7.2)");
