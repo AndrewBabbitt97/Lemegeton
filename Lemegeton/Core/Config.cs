@@ -30,7 +30,7 @@ namespace Lemegeton.Core
         public bool FirstRun { get; set; } = true;
         public bool AdvancedOptions { get; set; } = false;
 
-        public string OpcodeUrl { get; set; } = @"https://raw.githubusercontent.com/paissaheavyindustries/Resources/main/Blueprint/blueprint.xml";
+        public string OpcodeUrl { get; set; } = @"https://raw.githubusercontent.com/AndrewBabbitt97/Lemegeton/master/Data/blueprint.xml";
         public string OpcodeRegion { get; set; } = "EN/DE/FR/JP";
         public bool LogUnhandledOpcodes { get; set; } = false;
         public bool QueueFramework { get; set; } = true;
