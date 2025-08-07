@@ -1,11 +1,19 @@
 ﻿<Project Sdk="Dalamud.NET.Sdk/13.0.0">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <Platforms>AnyCPU;x64</Platforms>
-    <Configurations>Debug (Full);Release (Full);Debug (Mini);Release (Mini)</Configurations>
-	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-	<LangVersion>preview</LangVersion>
+    <Version>0.0.0.1</Version>
+    <Description>Your ultimate ingame companion; spells and enchantments to make your gameplay experience a little more magical.</Description>
+    <PackageProjectUrl>https://github.com/paissaheavyindustries/Lemegeton</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IsPackable>false</IsPackable>
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\Data\lemegton.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
 
 </Project>
